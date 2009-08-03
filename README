@@ -1,0 +1,9 @@
+# guessed by random
+File.open('results.txt','wb') do |out|
+  File.open('download/test.txt','rb') do |f|
+    f.readlines.each do |line|
+      uid = line.chomp.to_i
+      out << "#{uid}:#{repos_ids.sort_by{ rand }[0,10].join(',')}\n"
+    end
+  end
+end
